@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { styles } from "../Styles";
+import { styles } from "../styles/Styles";
 import { 
   View,
   Text,
@@ -37,6 +37,8 @@ async storeData(){
   }
 }
 
+
+//render item
   render(){
 
     const values = this.state.users.map(item => 

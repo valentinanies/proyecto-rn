@@ -1,15 +1,15 @@
 import React, {Component} from "react";
-import { styles } from "./Styles";
+import { styles } from "./src/styles/Styles";
 import { 
   View,
   Text,
 } from 'react-native';
 
-import Header from './components/Header'
-import Container from './components/Container'
-import Footer from './components/Footer'
+import Header from './src/components/Header'
+import Container from './src/components/Container'
+import Footer from './src/components/Footer'
 
-// import { Screen_Imports } from "./screens/Screen_Imports";
+import { Screen_FlatList } from "./src/screens/Screen_FlatList";
 
 export default class App extends Component {
 
@@ -30,7 +30,7 @@ export default class App extends Component {
         </View>
 
         <View style={{flex: 4}}>
-          <Container/>
+          <Screen_FlatList/>
         </View>
 
         <View style={{flex: 1}}>

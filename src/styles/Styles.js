@@ -59,6 +59,28 @@ const styles = StyleSheet.create({
       marginTop: 10,
     },
 
+    card: {
+      borderStartColor: "#89c2d9",
+      borderStyle: "solid",
+      borderRadius: 10,
+      borderWidth: 1,
+      margin: 5,
+      width: 150,
+      height: 100,
+      padding: 10,
+      flexDirection: "row",
+    },
+    
+    container_flat_list: {
+    justifyContent: "center",
+    alignItems: "center",
+    },
+
+    separator: {
+      borderBottomWidth: 1,
+      borderBottomColor: "black"
+    }
+
    }) 
 
    export {styles}
