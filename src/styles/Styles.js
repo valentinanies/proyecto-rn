@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import {StyleSheet, TouchableWithoutFeedback} from "react-native";
 
 const styles = StyleSheet.create({
 
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
       backgroundColor: "#a9d6e5",
       justifyContent: "center",
       alignItems: "center", 
-      marginTop: 50, 
       fontSize:40, 
       padding:30,
     },
@@ -60,10 +59,10 @@ const styles = StyleSheet.create({
     },
 
     card: {
-      borderStartColor: "#89c2d9",
+      backgroundColor: "#89c2d9",
       borderStyle: "solid",
       borderRadius: 10,
-      borderWidth: 1,
+      borderWidth: 2,
       margin: 5,
       width: 150,
       height: 100,
@@ -79,7 +78,52 @@ const styles = StyleSheet.create({
     separator: {
       borderBottomWidth: 1,
       borderBottomColor: "black"
-    }
+    },
+
+    modalContainer: {
+      justifyContent: "flex-end",
+      alignItems: "center",
+      flex: 1,
+      backgroundColor: "rgba(0,0,0,0.3)"
+    },
+
+    modal: {
+      backgroundColor: "rgba(0,0,0,0.3)",
+      height: "70%",
+      width: "100%",
+      justifyContent: "center",
+      alignItems: "center",
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      elevatiion: 10,
+      shadowColor: "black",
+      borderWidth: 1,
+      borderStyle: "solid",
+      borderColor: "black",
+      flex: 1,
+    },
+
+    modalText: {
+      fontSize: 20,
+      color: "white",
+    },
+
+    closeButtonModal: {
+      position: "absolute",
+      right: 20,
+      top: 10,
+      fontSize: 20,
+    },
+
+    imageModal: {
+      width:100,
+      height: 100,
+    },
+
+    image: {
+      width: 50,
+      height: 50,
+    },
 
    }) 
 

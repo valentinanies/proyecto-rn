@@ -11,6 +11,7 @@ import Footer from './src/components/Footer'
 
 import { Screen_FlatList } from "./src/screens/Screen_FlatList";
 
+
 export default class App extends Component {
 
   constructor(props){
@@ -29,7 +30,7 @@ export default class App extends Component {
           <Header/>
         </View>
 
-        <View style={{flex: 4}}>
+        <View style={{flex: 3}}>
           <Screen_FlatList/>
         </View>
 
