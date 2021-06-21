@@ -28,7 +28,8 @@ constructor(props){
         selectedItem: null,
     }
     }
-    
+
+   
 componentDidMount(){
     //getData ()
     //.then((usuarios) => {
@@ -36,12 +37,27 @@ componentDidMount(){
     //})
 }
 
+//traer las tarjetas de contacto
 async getDataFromApi() {
   this.setState({activity: true})
   let usuarios = await getData ();
   console.log(usuarios);
   this.setState({users: usuarios, activity: false})
 }
+
+
+//guardar en el dispositivo las tarjetas de contacto
+async storeData(){
+  try{
+    const jsonUsers = JSON.stringify(this.state.users);
+    await AsyncStorage.setItem("Users", jsonUsers);
+    console.log("Datos Almacenados");
+  } catch(e){
+    console.log(e)
+  }
+}
+
+
 
 keyExtractor = (item, idx) => idx.toString()
 
@@ -85,6 +101,12 @@ separator = () => <View style= {styles.separator}/>
                         />
                 }
                 </ScrollView>
+
+                <TouchableOpacity onPress={ this.storeData.bind(this)}>
+          <View style={styles.menu_view_button}>
+            <Text style={styles.stiloText}>Guardar datos</Text>
+            </View>
+        </TouchableOpacity>  
               
                 <Button title="Obtener Contactos" onPress={ () => this.getDataFromApi()}/>
 

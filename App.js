@@ -10,6 +10,7 @@ import Container from './src/components/Container'
 import Footer from './src/components/Footer'
 
 import { Screen_FlatList } from "./src/screens/Screen_FlatList";
+import { Screen_Imports } from "./src/screens/Screen_Imports";
 
 
 export default class App extends Component {
