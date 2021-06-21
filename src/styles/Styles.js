@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
-      elevatiion: 10,
+      elevation: 10,
       shadowColor: "black",
       borderWidth: 1,
       borderStyle: "solid",
