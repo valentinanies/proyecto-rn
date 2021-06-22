@@ -9,8 +9,6 @@ import {
   ActivityIndicator,
   Button,
   Image,
-  TouchableOpacityBase,
-  Alert,
   Modal,
   ScrollView,
 } from 'react-native';
@@ -87,7 +85,7 @@ renderItem  = ({item}) => {
                     <View style={styles.menu_view_button}>
                       <Text style={styles.stiloText}>Guardar Contacto</Text>
                     </View>
-                </TouchableOpacity>  
+                </TouchableOpacity> 
         </View>
       
         )
@@ -129,6 +127,8 @@ separator = () => <View style= {styles.separator}/>
                     </View>
                 </TouchableOpacity> 
 
+                <View>
+      </View>
 
                {/* <Button title="Show Modal" onPress={ () => this.setState({showModal: true})}/> */}
 
@@ -152,8 +152,8 @@ separator = () => <View style= {styles.separator}/>
                                     onPress={() => this.setState({showModal: false})}>X</Text>
                           </View>
                     </View>
-                </Modal>
-                
+                </Modal> 
+
       </View>
 
     )

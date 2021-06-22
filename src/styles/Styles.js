@@ -20,6 +20,13 @@ const styles = StyleSheet.create({
       textAlign: "center"
     },
 
+    stiloInput: {
+      borderWidth: 2,
+      borderStyle: "solid",
+      borderRadius: 10,
+      margin: 10,
+    },
+
     container: {
       backgroundColor: "white",
       justifyContent: "center",
@@ -69,7 +76,7 @@ const styles = StyleSheet.create({
       borderWidth: 2,
       margin: 5,
       width: 250,
-      height: 200,
+      height: 150,
       padding: 10,
       top: 10,
       bottom: 5,

@@ -9,7 +9,7 @@ import Header from './src/components/Header'
 import Container from './src/components/Container'
 import Footer from './src/components/Footer'
 
-import { Screen_AboutUs } from "./src/screens/Screen_AboutUs";
+import { Screen_Contactos } from "./src/screens/Screen_Contactos";
 
 
 export default class App extends Component {
@@ -31,7 +31,7 @@ export default class App extends Component {
         </View>
 
         <View style={{flex: 3}}>
-          <Screen_AboutUs/>
+          <Screen_Contactos/>
         </View>
 
         <View style={{flex: 1}}>

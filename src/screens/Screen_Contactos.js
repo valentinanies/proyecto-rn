@@ -4,6 +4,8 @@ import {
   View,
   Text,
   TouchableOpacity,
+  FlatList,
+  TextInput,
 } from 'react-native';
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -14,36 +16,85 @@ export class Screen_Contactos extends Component {
     super(props);
     this.state={
       importedUsers: [],
+      showModal: false,
+      textHandler: "",
     }
 }
 
-async storeData(){
+async getData() {
   try{
-    const resultado = await AsyncStorage.getItem("Users");
-    this.setState({importedUsers: JSON.parse(resultado)})
-  } catch(e){
+    
+    const users = await AsyncStorage.getItem("users");
+
+    const jsonUsers = JSON.parse(users)
+    
+    if (Array.isArray(jsonUsers)) {
+      this.setState({importedUsers: jsonUsers})
+    } else{
+      this.setState({importedUsers:[jsonUsers]})
+    }
+    
+
+  }catch(e){
     console.log(e)
   }
 }
+
+
+  keyExtractor = (item, idx) => idx.toString();
+  renderItem = ({item}) => {
+    return(
+
+        <View>
+          
+          <TouchableOpacity onPress= {() => this.showModal(item)}>
+            <Card 
+              nombre={item.name.first} 
+              apellido={item.name.last}  
+              foto={item.picture.thumbnail} 
+              edad={item.dob.age} 
+              mail={item.email} 
+              fecha={item.dob.date}  
+              direccion={item.location} 
+              registro={item.registered.date}
+              telefono={item.cell}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => this.deleteData(item)}><Text>Eliminar</Text></TouchableOpacity>
+        </View>
+  
+      )
+    }
+
+
   render(){
 
     return(
 
-      <View>
-        <Text style={styles.stiloTitle} >Mostramos los valores importados</Text>
-        {values}
-        
-        <TouchableOpacity onPress={ this.getData.bind(this)}>
-          <View style={styles.menu_view_button}>
-            <Text style={styles.stiloText}>Recuperar datos</Text>
-            </View>
-        </TouchableOpacity>
+      <View style={styles.container}>
 
-        <TouchableOpacity onPress={ () => this.setState({importedUsers: []})}>
-          <View style={styles.menu_view_button}>
-            <Text style={styles.stiloText}>Borrar datos importados</Text>
-            </View>
-        </TouchableOpacity>
+
+              <TouchableOpacity onPress={this.getData.bind(this)}>
+                <Text style={styles.stiloTitle}>Mis Contactos</Text>
+              </TouchableOpacity>
+
+              { this.state.activity 
+                    ? <React.Fragment>
+                    <ActivityIndicator
+                      color="blue"
+                      size={60}/>
+                      </React.Fragment>
+
+                    : <FlatList
+                        data= {this.state.users}
+                        keyExtracxtor= {this.keyExtractor}
+                        renderItem= {this.renderItem}
+                        ItemSeparatorComponent ={this.separator}
+                        numColumns= {1}
+                        />
+                }
+
 
       </View>
 
