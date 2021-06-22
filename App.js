@@ -9,8 +9,7 @@ import Header from './src/components/Header'
 import Container from './src/components/Container'
 import Footer from './src/components/Footer'
 
-import { Screen_FlatList } from "./src/screens/Screen_FlatList";
-import { Screen_Imports } from "./src/screens/Screen_Imports";
+import { Screen_AboutUs } from "./src/screens/Screen_AboutUs";
 
 
 export default class App extends Component {
@@ -32,7 +31,7 @@ export default class App extends Component {
         </View>
 
         <View style={{flex: 3}}>
-          <Screen_FlatList/>
+          <Screen_AboutUs/>
         </View>
 
         <View style={{flex: 1}}>

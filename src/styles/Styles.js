@@ -11,15 +11,19 @@ const styles = StyleSheet.create({
       fontSize:30,
       color: "black",
       fontWeight: "bold",
+      textAlign: "center"
+    },
+
+    stiloTitleAB: {
+      fontSize:20,
+      color: "black",
+      textAlign: "center"
     },
 
     container: {
       backgroundColor: "white",
       justifyContent: "center",
       alignItems: "center", 
-      marginTop: 50, 
-      fontSize:40, 
-      padding:30,
     },
 
     header: {
@@ -61,41 +65,46 @@ const styles = StyleSheet.create({
     card: {
       backgroundColor: "#89c2d9",
       borderStyle: "solid",
-      borderRadius: 10,
+      borderRadius: 20,
       borderWidth: 2,
       margin: 5,
-      width: 150,
-      height: 100,
+      width: 250,
+      height: 200,
       padding: 10,
-      flexDirection: "row",
+      top: 10,
+      bottom: 5,
     },
     
-    container_flat_list: {
+    container_card: {
     justifyContent: "center",
     alignItems: "center",
+    flex: 1,
     },
 
     separator: {
-      borderBottomWidth: 1,
-      borderBottomColor: "black"
+      borderBottomWidth: 2,
+      borderBottomColor: "black",
+      bottom: 6,
+      top: 6,
     },
 
     modalContainer: {
       justifyContent: "flex-end",
       alignItems: "center",
       flex: 1,
-      backgroundColor: "rgba(0,0,0,0.3)"
+      backgroundColor: "rgba(0,0,0,0.3)",
+
     },
 
     modal: {
       backgroundColor: "rgba(0,0,0,0.3)",
-      height: "70%",
+      height: "30%",
       width: "100%",
       justifyContent: "center",
       alignItems: "center",
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
-      elevation: 10,
+      elevation: 5,
       shadowColor: "black",
       borderWidth: 1,
       borderStyle: "solid",
@@ -106,6 +115,7 @@ const styles = StyleSheet.create({
     modalText: {
       fontSize: 20,
       color: "white",
+      fontWeight: "bold",
     },
 
     closeButtonModal: {
@@ -113,6 +123,7 @@ const styles = StyleSheet.create({
       right: 20,
       top: 10,
       fontSize: 20,
+      color: "red",
     },
 
     imageModal: {

@@ -1,30 +1,51 @@
 import React, {Component} from "react";
 import { styles } from "../styles/Styles";
+import {getData} from "../api/RandomUsers";
 import { 
   View,
   Text,
-  Button,
   TouchableOpacity,
+  FlatList,
+  ActivityIndicator,
+  Button,
+  Image,
+  TouchableOpacityBase,
+  Alert,
+  Modal,
+  ScrollView,
 } from 'react-native';
+
+import Card from "../components/Card"
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export class Screen_Imports extends Component {
-
-  constructor(props){
+    
+constructor(props){
     super(props);
     this.state={
-      users: [],
+        users: [],
+        activity: false,
+        showModal: false,
+        selectedItem: null,
     }
-}
- 
-//traer las tarjetas de contacto
+    }
+  
 componentDidMount(){
-  fetch("https://randomuser.me/api/?results=20")
-  .then(response => response.json())
-  .then (result => {
-    this.setState({users: result.results})
-  })
+    //getData ()
+    //.then((usuarios) => {
+    //this.setState({users:usuarios});
+    //})
 }
+
+//traer las tarjetas de contacto
+async getDataFromApi() {
+  this.setState({activity: true})
+  let usuarios = await getData ();
+  console.log(usuarios);
+  this.setState({users: usuarios, activity: false})
+}
+
 
 //guardar en el dispositivo las tarjetas de contacto
 async storeData(){
@@ -38,27 +59,104 @@ async storeData(){
 }
 
 
-//render item
-  render(){
+keyExtractor = (item, idx) => idx.toString()
 
-    const values = this.state.users.map(item => 
-        <Text key = {item.login.uuid}
-              style={styles.stiloText}
-        >{item.name.first}</Text>
-      )
-
+renderItem  = ({item}) => {
     return(
 
       <View>
-        <Text style={styles.stiloTitle}>Importamos las trajetas</Text>
-        {values}
-        <TouchableOpacity onPress={ this.storeData.bind(this)}>
-          <View style={styles.menu_view_button}>
-            <Text style={styles.stiloText}>Guardar datos</Text>
-            </View>
-        </TouchableOpacity>      
+
+        <TouchableOpacity onPress= {() => this.showModal(item)}>
+        <Card 
+            nombre={item.name.first} 
+            apellido={item.name.last} 
+            id={item.login.uuid} 
+            foto={item.picture.thumbnail} 
+            edad={item.dob.age} 
+            mail={item.email} 
+            fecha={item.dob.date}  
+            direccion={item.location} 
+            registro={item.registered.date}
+            telefono={item.cell}
+          />
+        </TouchableOpacity>
+
+{/* onPress={ this.storeData.bind(this)} */}
+
+        <TouchableOpacity onPress={() => this.storeData(item)}>
+                    <View style={styles.menu_view_button}>
+                      <Text style={styles.stiloText}>Guardar Contacto</Text>
+                    </View>
+                </TouchableOpacity>  
+        </View>
+      
+        )
+}
+
+showModal(item) {
+  this.setState({selectedItem: item, showModal: true})
+}
+
+separator = () => <View style= {styles.separator}/>
+
+
+  render(){
+
+    return(
+      <View style={styles.container}>
+
+
+                { this.state.activity 
+                    ? <React.Fragment>
+                    <ActivityIndicator
+                      color="blue"
+                      size={60}/>
+                      </React.Fragment>
+
+                    : <FlatList
+                        data= {this.state.users}
+                        keyExtracxtor= {this.keyExtractor}
+                        renderItem= {this.renderItem}
+                        ItemSeparatorComponent ={this.separator}
+                        numColumns= {1}
+                        />
+                }
+
+              
+                <TouchableOpacity onPress={ () => this.getDataFromApi()}>
+                    <View style={styles.menu_view_button}>
+                      <Text style={styles.stiloText}>Obtener Contactos</Text>
+                    </View>
+                </TouchableOpacity> 
+
+
+               {/* <Button title="Show Modal" onPress={ () => this.setState({showModal: true})}/> */}
+
+                <Modal 
+                  visible= {this.state.showModal}
+                  transparent={true}
+                  animationType= "fade"
+                  >
+
+                    <View style={styles.modalContainer}>
+
+                        <View style={styles.modal}>
+
+                          {this.state.selectedItem &&
+                          <>  
+                              <Text style={styles.modalText}>{this.state.selectedItem.name.first}</Text>
+                              <Text style={styles.modalText}>{this.state.selectedItem.name.last}</Text>
+                          </>
+                          }
+                              <Text style={styles.closeButtonModal}
+                                    onPress={() => this.setState({showModal: false})}>X</Text>
+                          </View>
+                    </View>
+                </Modal>
+                
       </View>
 
     )
   }
 }
+
