@@ -26,31 +26,33 @@ export class Screen_Menu extends Component {
 
         <TouchableOpacity>
             <View style={styles.menu_view_button}>
-                <Text style={styles.stiloText}>Contactos</Text>
+                <Text style={styles.stiloText}
+                onPress={ () => this.props.navigation.navigate('Imports')}
+                >Importar</Text>
             </View>
         </TouchableOpacity>
 
         <TouchableOpacity>
             <View style={styles.menu_view_button}>
-                <Text style={styles.stiloText}>Buscar</Text>
+                <Text style={styles.stiloText}
+                onPress={ () => this.props.navigation.navigate('Contactos')}
+                >Contactos</Text>
             </View>
         </TouchableOpacity>
 
         <TouchableOpacity>
             <View style={styles.menu_view_button}>
-                <Text style={styles.stiloText}>Importar</Text>
+                <Text style={styles.stiloText}
+                onPress={ () => this.props.navigation.navigate('Papelera')}
+                >Papelera</Text>
             </View>
         </TouchableOpacity>
 
         <TouchableOpacity>
             <View style={styles.menu_view_button}>
-                <Text style={styles.stiloText}>Papelera</Text>
-            </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-            <View style={styles.menu_view_button}>
-                <Text style={styles.stiloText}>About Us</Text>
+                <Text style={styles.stiloText}
+                onPress={ () => this.props.navigation.navigate('AbooutUs')}
+                >Acerca de</Text>
             </View>
         </TouchableOpacity>
 
