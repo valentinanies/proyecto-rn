@@ -4,6 +4,8 @@ import { styles } from "./src/styles/Styles";
 import { 
   View,
   Text,
+ 
+  //agregue Menu e Imports porque según google ayuda a arreglar un problema al iniciar el proyecto. El problema en cuestión era que decía no haber encontrado las varibles Menu e Imports. Lo que hice lo solucionó y el problema fue derivando en otras cosas.
 } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -34,11 +36,11 @@ export default class App extends Component {
 
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Menu" component={Menu} options={{title: "Menu"}} />
-          <Stack.Screen name="Imports" component={Imports} options={{title: "Importar"}} />
-          <Stack.Screen name="Contactos" component={Contactos} options={{title: "Contactos"}} />
-          <Stack.Screen name="Papelera" component={Papelera} options={{title: "Papelera"}} />
-          <Stack.Screen name="AboutUs" component={AboutUs} options={{title: "Acerca de"}}/>
+          <Stack.Screen name="Screen_Menu" component={Screen_Menu} options={{title: "Menu"}} />
+          <Stack.Screen name="Screen_Imports" component={Screen_Imports} options={{title: "Importar"}} />
+          <Stack.Screen name="Screen_Contactos" component={Screen_Contactos} options={{title: "Contactos"}} />
+          {/* <Stack.Screen name="Papelera" component={Screen_Papelera} options={{title: "Papelera"}} /> */}
+          <Stack.Screen name="Screen_AboutUs" component={Screen_AboutUs} options={{title: "Acerca de"}}/>
         </Stack.Navigator>
       </NavigationContainer>
 
