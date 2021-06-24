@@ -4,6 +4,7 @@ import { styles } from "./src/styles/Styles";
 import { 
   View,
   Text,
+  
   //agregue Menu e Imports porque según google ayuda a arreglar un problema al iniciar el proyecto. El problema en cuestión era que decía no haber encontrado las varibles Menu e Imports. Lo que hice lo solucionó y el problema fue derivando en otras cosas.
 } from 'react-native';
 
