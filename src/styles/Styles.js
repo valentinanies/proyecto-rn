@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 
     container: {
       backgroundColor: "white",
-      justifyContent: "center",
+      justifyContent: "space-around",
       alignItems: "center", 
     },
 
@@ -41,14 +41,31 @@ const styles = StyleSheet.create({
       padding:30,
     },
 
-    footer: {
+    container_footer:{
+      
+      flexDirection: "row",
       backgroundColor: "#a9d6e5",
-      justifyContent: "center",
+      justifyContent: "space-around",
       alignItems: "center", 
       marginTop: 50, 
       fontSize:40, 
-      padding:30
+      padding:30,
+    },
+
+    footer: {
+      backgroundColor: "#a9d6e5",
+      // justifyContent: "center",
+      // alignItems: "center", 
+      marginTop: 50, 
+      fontSize:40, 
+      padding:30,
+      
       },
+
+    home:{
+      width: 60,
+      height: 60
+    },
 
     menu: {
       backgroundColor: "white",

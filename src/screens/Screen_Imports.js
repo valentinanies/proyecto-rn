@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import { styles } from "../styles/Styles";
 import {getData} from "../api/RandomUsers";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Container from '../components/Container'
 import { 
   View,
   Text,
@@ -101,8 +104,11 @@ separator = () => <View style= {styles.separator}/>
   render(){
 
     return(
+      <View>
+        
+          <Header/>
       <View style={styles.container}>
-
+          
 
                 { this.state.activity 
                     ? <React.Fragment>
@@ -126,8 +132,10 @@ separator = () => <View style= {styles.separator}/>
                       <Text style={styles.stiloText}>Importar Contactos</Text>
                     </View>
                 </TouchableOpacity> 
+               
 
                 <View>
+                
       </View>
 
                {/* <Button title="Show Modal" onPress={ () => this.setState({showModal: true})}/> */}
@@ -144,8 +152,19 @@ separator = () => <View style= {styles.separator}/>
 
                           {this.state.selectedItem &&
                           <>  
-                              <Text style={styles.modalText}>{this.state.selectedItem.name.first}</Text>
-                              <Text style={styles.modalText}>{this.state.selectedItem.name.last}</Text>
+                              
+                              {/* <Text style={styles.modalText}>Nombre: {this.state.selectedItem.name.first}</Text>
+                              <Text style={styles.modalText}>Apellido: {this.state.selectedItem.name.last}</Text> */}
+                              <Text style={styles.modalText}>Calle: {this.state.selectedItem.location.street.name}{this.state.selectedItem.location.street.number}</Text>
+                              <Text style={styles.modalText}>País: {this.state.selectedItem.location.country}, {this.state.selectedItem.location.state}</Text>
+                              <Text style={styles.modalText}>Código Postal: {this.state.selectedItem.location.postcode}</Text>
+                              <Text style={styles.modalText}>Fecha de Registro: {this.state.selectedItem.registered.date}</Text>
+                              <Text style={styles.modalText}>Teléfono: {this.state.selectedItem.phone}</Text>
+
+
+                              
+
+                              
                               
                               
                               
@@ -157,6 +176,19 @@ separator = () => <View style= {styles.separator}/>
                     </View>
                 </Modal> 
 
+      </View>
+      
+      <View style={styles.container_footer}>
+            <TouchableOpacity onPress={ () => this.props.navigation.navigate("Menu")}> 
+                <Image source={require("../img/home.png")} style={styles.home} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={ () => this.props.navigation.goBack()}> 
+                <Image source={require("../img/back.png")} style={styles.home} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={ () => this.props.navigation.navigate("AboutUs")}> 
+                <Image source={require("../img/us.png")} style={styles.home} />
+                </TouchableOpacity>
+          </View>
       </View>
 
     )

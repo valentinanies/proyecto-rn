@@ -25,7 +25,7 @@ export default class App extends Component {
       
         <NavigationContainer>
           <Stack.Navigator>
-            
+            {/* se renderiza la primer pantalla */}
             <Stack.Screen name="Menu" component={Screen_Menu}/> 
             <Stack.Screen name="Imports" component={Screen_Imports}/>
             <Stack.Screen name="Contactos" component={Screen_Contactos}/>

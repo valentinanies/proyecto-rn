@@ -1,11 +1,13 @@
 import React, {Component} from "react";
 import { styles } from "../styles/Styles";
+import Header from '../components/Header'
 import { 
   View,
   Text,
   TouchableOpacity,
   FlatList,
   TextInput,
+  Image
 } from 'react-native';
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -15,11 +17,13 @@ export class Screen_Contactos extends Component {
   constructor(props){
     super(props);
     this.state={
+      loading: true,
       importedUsers: [],
       showModal: false,
       textHandler: "",
     }
 }
+
 
 async getData() {
   try{
@@ -72,6 +76,8 @@ async getData() {
 
     return(
 
+      <View>
+        <Header/>
       <View style={styles.container}>
 
 
@@ -97,6 +103,19 @@ async getData() {
 
 
       </View>
+      <View style={styles.container_footer}>
+            
+      <TouchableOpacity onPress={ () => this.props.navigation.goBack()}> 
+      <Image source={require("../img/back.png")} style={styles.home} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={ () => this.props.navigation.navigate("Menu")}> 
+      <Image source={require("../img/home.png")} style={styles.home} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={ () => this.props.navigation.navigate("AboutUs")}> 
+      <Image source={require("../img/us.png")} style={styles.home} />
+      </TouchableOpacity>
+</View>
+</View>
 
     )
   }
