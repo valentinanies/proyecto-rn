@@ -59,6 +59,23 @@ async storeData(){
   }
 }
 
+  borrarTarjeta(id){
+    let resultados = this.state.users.filter((item)=>{
+      return item.login.uuid !== id;
+    })
+    this.setState({users:resultados})
+  }
+
+async removeItem(){
+  try{
+    await AsyncStorage.removeItem("Users");
+    return true;
+  }
+  catch(exception){
+    return false;
+  }
+}
+
 
 keyExtractor = (item, idx) => idx.toString()
 
@@ -89,7 +106,15 @@ renderItem  = ({item}) => {
                       <Text style={styles.stiloText}>Guardar</Text>
                     </View>
                 </TouchableOpacity> 
+
+                <TouchableOpacity onPress={() => this.borrarTarjeta(item.login.uuid)}>
+                    <View style={styles.guardar_contactos}>
+                      <Text style={styles.stiloText}>Borrar</Text>
+                    </View>
+                </TouchableOpacity> 
         </View>
+        
+        
       
         )
 }
