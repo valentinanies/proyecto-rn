@@ -82,8 +82,8 @@ renderItem  = ({item}) => {
 {/* onPress={ this.storeData.bind(this)} */}
 
         <TouchableOpacity onPress={() => this.storeData(item)}>
-                    <View style={styles.menu_view_button}>
-                      <Text style={styles.stiloText}>Guardar Contacto</Text>
+                    <View style={styles.guardar_contactos}>
+                      <Text style={styles.stiloText}>Guardar</Text>
                     </View>
                 </TouchableOpacity> 
         </View>
@@ -116,14 +116,14 @@ separator = () => <View style= {styles.separator}/>
                         keyExtracxtor= {this.keyExtractor}
                         renderItem= {this.renderItem}
                         ItemSeparatorComponent ={this.separator}
-                        numColumns= {1}
+                        numColumns= {2}
                         />
                 }
 
               
                 <TouchableOpacity onPress={ () => this.getDataFromApi()}>
                     <View style={styles.menu_view_button}>
-                      <Text style={styles.stiloText}>Obtener Contactos</Text>
+                      <Text style={styles.stiloText}>Importar Contactos</Text>
                     </View>
                 </TouchableOpacity> 
 
@@ -146,6 +146,9 @@ separator = () => <View style= {styles.separator}/>
                           <>  
                               <Text style={styles.modalText}>{this.state.selectedItem.name.first}</Text>
                               <Text style={styles.modalText}>{this.state.selectedItem.name.last}</Text>
+                              
+                              
+                              
                           </>
                           }
                               <Text style={styles.closeButtonModal}

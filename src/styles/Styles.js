@@ -69,13 +69,25 @@ const styles = StyleSheet.create({
       marginTop: 10,
     },
 
+    guardar_contactos:{
+      backgroundColor: "#89c2d9",
+      textAlign: "center",
+      padding: 10,
+      paddingLeft: 50,
+      paddingRight: 50,
+      borderRadius: 30,
+      marginTop: 10,
+      width: 150
+      
+    },
+  
     card: {
       backgroundColor: "#89c2d9",
       borderStyle: "solid",
       borderRadius: 20,
       borderWidth: 2,
       margin: 5,
-      width: 250,
+      width: 150,
       height: 150,
       padding: 10,
       top: 10,
