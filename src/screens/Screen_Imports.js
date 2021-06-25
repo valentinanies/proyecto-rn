@@ -163,7 +163,7 @@ separator = () => <View style= {styles.separator}/>
   render(){
 
     return(
-      <ScrollView>
+      <ScrollView style={{backgroundColor: "white"}}>
       <View>
         
           <Header/>

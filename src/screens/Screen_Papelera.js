@@ -21,7 +21,7 @@ export class Screen_Papelera extends Component {
 
   render(){
     return(
-      <View>
+      <View style={{backgroundColor: "white"}}>
         <Header/>
         <View style={styles.container_footer}>
             

@@ -85,13 +85,13 @@ async getData(key){
 
     return(
 
-      <View>
+      <View style={{backgroundColor: "white"}}>
         <Header/>
       <View style={styles.container}>
 
 
-              <TouchableOpacity onPress={()=>{this.getData("userData", this.state.users)}}>
-                <Text style={styles.stiloTitle}>Mostrar Contactos</Text>
+              <TouchableOpacity style={styles.menu_view_button} onPress={()=>{this.getData("userData", this.state.users)}}>
+                <Text style={styles.stiloText}>Mostrar Contactos</Text>
               </TouchableOpacity>
 
               { this.state.activity 
