@@ -68,8 +68,8 @@ async storeData(){
     const jsonUsers = JSON.stringify(this.state.users);
     await AsyncStorage.setItem("Users", jsonUsers);
     console.log("Datos Almacenados");
-  } catch(e){
-    console.log(e)
+  } catch(error){
+    console.log(error)
   }
 }
 
@@ -191,15 +191,16 @@ separator = () => <View style= {styles.separator}/>
 
                <View>
                     <TextInput
-                     placeholder="Ingresar Cantidad" 
+                     placeholder="Ingresar Cantidad"
                      onChangeText={text => this.setState({textHandler: text})}
                      keyboardType ="numeric"
                      style={{
-                       
+                       textAlign: "center",
+                       fontSize: 20
                      }}/>
                     <TouchableOpacity onPress={ () => this.importarCustom(this.state.textHandler)}>
                         <View style={styles.menu_view_button}>
-                          <Text style={styles.stiloText}>Importar Custom</Text>
+                          <Text style={styles.stiloText}>Importar Tarjetas</Text>
                         </View>
                     </TouchableOpacity> 
                 </View> 

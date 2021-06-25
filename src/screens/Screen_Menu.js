@@ -8,7 +8,8 @@ import {
   Text,
   Button,
   TouchableOpacity,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 
 export class Screen_Menu extends Component {
@@ -21,7 +22,9 @@ export class Screen_Menu extends Component {
 
   render(){
     return(
+      <ScrollView>
       <View>
+        
         <Header/>
       
             <View style={styles.menu}>
@@ -72,7 +75,9 @@ export class Screen_Menu extends Component {
             <Image source={require("../img/aboutUs.png")} style={styles.home} />
             </TouchableOpacity>
             </View>
+           
                   </View>
+                   </ScrollView>
 
        
       

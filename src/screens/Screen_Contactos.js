@@ -28,7 +28,7 @@ export class Screen_Contactos extends Component {
 async getData() {
   try{
     
-    const users = await AsyncStorage.getItem("users");
+    const users = await AsyncStorage.getItem("Users");
 
     const jsonUsers = JSON.parse(users)
     

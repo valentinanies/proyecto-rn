@@ -52,6 +52,17 @@ const styles = StyleSheet.create({
       padding:30,
     },
 
+    container_footer_aboutUs:{
+      flexDirection: "row",
+      backgroundColor: "#a9d6e5",
+      justifyContent: "space-around",
+      alignItems: "center", 
+      marginTop: 50, 
+      fontSize:40, 
+      padding:30,
+      top: 300
+    },
+
     footer: {
       backgroundColor: "#a9d6e5",
       // justifyContent: "center",
@@ -208,6 +219,7 @@ const styles = StyleSheet.create({
       borderRadius: 10
     },
 
+    
    }) 
 
    export {styles}
