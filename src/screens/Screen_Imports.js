@@ -187,7 +187,10 @@ separator = () => <View style= {styles.separator}/>
          textAlign: "center",
          fontSize: 20
         }}
-        placeholder="Buscar aqui..." onChangeText={text => {this.setState({search: text}); this.filter(text) }} value={search}/>
+        placeholder="Filtrar" 
+        onChangeText={text => {this.setState({search: text})
+        this.filter(text)}} 
+        value={search}/>
                 { this.state.activity 
                     ? <React.Fragment>
                     <ActivityIndicator
