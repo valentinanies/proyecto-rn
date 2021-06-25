@@ -1,9 +1,12 @@
 import React, {Component} from "react";
 import { styles } from "../styles/Styles";
 import {getData} from "../api/RandomUsers";
+import {TraerData} from "../api/TraerData";
+import {GuardarData} from "../api/GuardarData";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Container from '../components/Container'
+
 import { 
   View,
   Text,
@@ -35,6 +38,7 @@ constructor(props){
         text:'',
         usuarios: '',
         search: '',
+        commmentHandler:"",
 
     }
     }
@@ -63,17 +67,26 @@ importarCustom = (n) => {
   })
 }
 
-//guardar en el dispositivo las tarjetas de contacto
 
-async storeData(key, value){
-  try{
-    const jsonUsers = JSON.stringify(value)
-    await AsyncStorage.setItem(key, jsonUsers)
-    console.log("Datos Almacenados");
-  } catch(error){
-    console.log(error)
-  }
+//MÉTODO COMENTARIOS
+Comentar = (key, comment) => {
+  TraerData(key).then((comments)=>{
+    comments = comments.concat(comment)
+    GuardarData(key, comments)
+  })
 }
+
+//guardar en el dispositivo las tarjetas de contacto -- EXPORTADO
+
+// async storeData(key, value){
+//   try{
+//     const jsonUsers = JSON.stringify(value)
+//     await AsyncStorage.setItem(key, jsonUsers)
+//     console.log("Datos Almacenados");
+//   } catch(error){
+//     console.log(error)
+//   }
+// }
 
 //este método debe ir en la papelera de reciclaje para eliminar definitivamente
   borrarTarjeta(id){
@@ -251,7 +264,15 @@ separator = () => <View style= {styles.separator}/>
                                     width: 320,
                                     borderColor: 'black',
                                     borderWidth: 2
-                                    }}/>
+                                    }}
+                                onChangeText={text => this.setState({commentHandler:text})}>{this.state.commentHandler}</TextInput>
+                            <TouchableOpacity onPress={() => this.importarCustom(this.state.commentHandler)}>
+                              <Text style={{
+                                fontSize: 25,
+                                alignItems: "center",
+
+                              }}> Guardar Comentario</Text>
+                            </TouchableOpacity>
                             </View>
 
 
