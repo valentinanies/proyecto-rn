@@ -44,7 +44,7 @@ constructor() {
 <TouchableOpacity onPress={ () => this.props.navigation.navigate("Papelera")}> 
 <Image source={require("../img/papelera.png")} style={styles.home} />
 </TouchableOpacity>
-<TouchableOpacity onPress={ () => this.props.navigation.navigate("home")}> 
+<TouchableOpacity onPress={ () => this.props.navigation.navigate("Menu")}> 
 <Image source={require("../img/home.png")} style={styles.home} />
 </TouchableOpacity>
 <TouchableOpacity onPress={ () => this.props.navigation.navigate("Contactos")}> 

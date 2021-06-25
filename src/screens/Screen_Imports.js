@@ -70,6 +70,7 @@ async storeData(){
   }
 }
 
+//este método debe ir en la papelera de reciclaje para eliminar definitivamente
   borrarTarjeta(id){
     let resultados = this.state.users.filter((item)=>{
       return item.login.uuid !== id;
@@ -228,7 +229,7 @@ separator = () => <View style= {styles.separator}/>
 <TouchableOpacity onPress={ () => this.props.navigation.navigate("Papelera")}> 
 <Image source={require("../img/papelera.png")} style={styles.home} />
 </TouchableOpacity>
-<TouchableOpacity onPress={ () => this.props.navigation.navigate("home")}> 
+<TouchableOpacity onPress={ () => this.props.navigation.navigate("Menu")}> 
 <Image source={require("../img/home.png")} style={styles.home} />
 </TouchableOpacity>
 <TouchableOpacity onPress={ () => this.props.navigation.navigate("Contactos")}> 
