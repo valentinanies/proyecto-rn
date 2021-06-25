@@ -11,7 +11,12 @@ import {
 
 export class Card_AB extends Component {
 
-
+  constructor(props){
+    super(props);
+    this.state={
+        toValue: 1,
+    }
+  }
 
   position = new Animated.Value(0);
   rotation = new Animated.Value(0);
@@ -20,13 +25,13 @@ export class Card_AB extends Component {
     Animated.parallel([
 
       Animated.timing(this.rotation,{
-        toValue: 1,
+        toValue: this.state.toValue,
         duration: 100,
         useNativeDriver: true
     })
 
     ]).start();
-
+    this.setState({toValue: this.state.toValue + 1})
   }
 
   render (){
@@ -45,51 +50,25 @@ export class Card_AB extends Component {
     return (
         <TouchableWithoutFeedback style={styles.guardar_contactos} onPress={this.topDown}>
         <View>
-            <Animated.View style={{
-
-                backgroundColor: "#89c2d9",
-                borderStyle: "solid",
-                borderRadius: 20,
-                borderWidth: 2,
-                //margin: 5,
-                width: 200,
-                height: 150,
-                //padding: 10,
-                //top: 100,
-                //bottom: 5,
-                justifyContent:"center",
-                alignItems: "center",
+            <Animated.View style={[{
                 backfaceVisibility: 'true',
                 transform: [
                     {translateX: this.position},
                     {rotateY: rotateA}
             ]
-            }}>
+            }, styles.card_A]}>
                 <View style={styles.container_card_about} >
                     <Text style={styles.stiloText}>{this.props.name}</Text>      
                 </View>
             </Animated.View>
 
-            <Animated.View style={{
-                backgroundColor: "#89c2d9",
-                borderStyle: "solid",
-                borderRadius: 20,
-                borderWidth: 2,
-                //margin: 5,
-                width: 200,
-                height: 150,
-                //padding: 10,
-                //top: 100,
-                //bottom: 5,
-                justifyContent:"center",
-                alignItems: "center",
+            <Animated.View style={[{
                 backfaceVisibility: 'hidden',
-                position: 'absolute',
                 transform: [
                     {translateX: this.position},
                     {rotateY: rotateB}
                 ]
-                }}>
+                }, styles.card_B ]}>
                 <View style={styles.container_card_about} >
                     <Text style={styles.stiloText}>Estudiante de la carrera Negocios Digitales en la Universidad de San Andres</Text>      
                 </View>
