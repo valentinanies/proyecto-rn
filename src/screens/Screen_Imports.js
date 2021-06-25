@@ -193,14 +193,14 @@ separator = () => <View style= {styles.separator}/>
           <Header/>
       <View style={styles.container}>
           
-      <TextInput style={{ 
-         textAlign: "center",
-         fontSize: 20
-        }}
-        placeholder="Filtrar" 
-        onChangeText={text => {this.setState({search: text})
-        this.filter(text)}} 
-        value={search}/>
+                <TextInput style={{ 
+                   textAlign: "center",
+                   fontSize: 20
+                  }}
+                  placeholder="Filtrar" 
+                  onChangeText={text => {this.setState({search: text})
+                  this.filter(text)}} 
+                  value={search}/>
                 { this.state.activity 
                     ? <React.Fragment>
                     <ActivityIndicator
