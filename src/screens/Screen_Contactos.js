@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { styles } from "../styles/Styles";
-import Header from '../components/Header'
+import Header from '../components/Header';
+import Favorita from '../components/cardFavorite';
 import { 
   View,
   Text,
@@ -107,6 +108,30 @@ async getData(key){
                         renderItem= {this.renderItem}
                         ItemSeparatorComponent ={this.separator}
                         numColumns= {1}
+                       
+                        renderItem= {({item})=>
+                        (
+                       <cardFavortite
+              onDelete= {this.borrarItem.bind(this)}
+                  id= {item.login.uuid}
+                  firstName={item.name.first}
+                  img={item.picture.large}
+                  lastName={item.name.last}
+                  Email={item.email}
+                  city={item.location.city}
+                  Street={item.location.street.name}
+                  StreetNum={item.location.street.number}
+                  Country={item.location.country}
+                  State={item.location.state}
+                  Zipcode={ item.location.postcode}
+                  Age= {item.dob.age}
+                  Date= {item.dob.date}
+                  Tel= {item.phone}
+                  RegisterDate = {item.registered.date}
+                  >                
+              </cardFavortite>
+  
+                   )} 
                         />
                 }
 
