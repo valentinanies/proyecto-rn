@@ -34,6 +34,7 @@ constructor(props){
         textHandler: "",
         text:'',
         usuario: '',
+        search: '',
 
     }
     }
@@ -82,7 +83,7 @@ async storeData(key, value){
     this.setState({users:resultados})
   }
 
- /* filter(text){
+  filter(text){
           if (text.length > 0) {
               // var text = target.value
             const usuarios = this.state.usuario
@@ -105,7 +106,7 @@ async storeData(key, value){
           console.log(text);
 
         }
- */
+ 
 keyExtractor = (item, idx) => idx.toString()
 
 renderItem  = ({item}) => {
@@ -114,7 +115,6 @@ renderItem  = ({item}) => {
       <View >
         
         <View >
-        {/* <textImput placeholder="Buscar aqui..." onChangeText={text => {this.setState({search: text}); this.filter(text) }} value={search}/> */}
         <TouchableOpacity onPress= {() => this.showModal(item)}>
         <Card 
             nombre={item.name.first} 
@@ -162,6 +162,7 @@ separator = () => <View style= {styles.separator}/>
 
   render(){
 
+    const {search}= this.state;
     return(
       <ScrollView style={{backgroundColor: "white"}}>
       <View>
@@ -169,7 +170,11 @@ separator = () => <View style= {styles.separator}/>
           <Header/>
       <View style={styles.container}>
           
-
+      <TextInput style={{ 
+         textAlign: "center",
+         fontSize: 20
+        }}
+        placeholder="Buscar aqui..." onChangeText={text => {this.setState({search: text}); this.filter(text) }} value={search}/>
                 { this.state.activity 
                     ? <React.Fragment>
                     <ActivityIndicator

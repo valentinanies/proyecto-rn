@@ -265,6 +265,22 @@ const styles = StyleSheet.create({
 
     },
 
+     barrasBusq: {
+            height: 100,
+            width:350,
+            margin: 10,
+            borderWidth: 1,
+            paddingLeft: 20,
+            margin: 5,
+            borderColor: '#000000',
+            marginTop: 10,
+            marginBottom: 10,
+            borderWidth: 3,
+            borderRadius: 10,
+            backgroundColor: 'white', 
+            marginLeft: 13,
+      },
+
    }) 
 
    export {styles}
