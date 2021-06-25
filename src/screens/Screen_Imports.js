@@ -33,7 +33,8 @@ constructor(props){
         selectedItem: null,
         textHandler: "",
         text:'',
-        usuario: '',
+        usuarios: '',
+        search: '',
 
     }
     }
@@ -82,11 +83,11 @@ async storeData(key, value){
     this.setState({users:resultados})
   }
 
- /* filter(text){
+  filter(text){
           if (text.length > 0) {
               // var text = target.value
-            const usuarios = this.state.usuario
-            const filtrado = usuarios.filter((item) =>{
+            const personajes = this.state.usuarios
+            const filtrado = personajes.filter((item) =>{
             const itemData = item.name.first.toUpperCase()
             const lastName = item.name.last.toUpperCase()
             const age = item.dob.age.toString()
@@ -96,16 +97,16 @@ async storeData(key, value){
                   // comparo name o last name o age con el valor ingresado .
               )})
             this.setState({
-                usuario: filtrado,
+                usuarios: filtrado,
                 textoBuscado: text,
             })
           } else {
-            this.setState({usuario:this.state.personOriginal}) 
+            this.setState({usuarios:this.state.personOriginal}) 
           }
           console.log(text);
 
         }
- */
+ 
 keyExtractor = (item, idx) => idx.toString()
 
 renderItem  = ({item}) => {
@@ -114,7 +115,6 @@ renderItem  = ({item}) => {
       <View >
         
         <View >
-        {/* <textImput placeholder="Buscar aqui..." onChangeText={text => {this.setState({search: text}); this.filter(text) }} value={search}/> */}
         <TouchableOpacity onPress= {() => this.showModal(item)}>
         <Card 
             nombre={item.name.first} 
@@ -162,14 +162,19 @@ separator = () => <View style= {styles.separator}/>
 
   render(){
 
+    const {search}= this.state;
     return(
-      <ScrollView>
+      <ScrollView style={{backgroundColor: "white"}}>
       <View>
         
           <Header/>
       <View style={styles.container}>
           
-
+      <TextInput style={{ 
+         textAlign: "center",
+         fontSize: 20
+        }}
+        placeholder="Buscar aqui..." onChangeText={text => {this.setState({search: text}); this.filter(text) }} value={search}/>
                 { this.state.activity 
                     ? <React.Fragment>
                     <ActivityIndicator
