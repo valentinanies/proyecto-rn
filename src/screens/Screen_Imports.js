@@ -77,24 +77,16 @@ async storeData(){
     this.setState({users:resultados})
   }
 
-async removeItem(){
-  try{
-    await AsyncStorage.removeItem("Users");
-    return true;
-  }
-  catch(exception){
-    return false;
-  }
-}
 
 
 keyExtractor = (item, idx) => idx.toString()
 
 renderItem  = ({item}) => {
     return(
-
-      <View>
-
+    <ScrollView>
+      <View >
+        
+        <View >
         <TouchableOpacity onPress= {() => this.showModal(item)}>
         <Card 
             nombre={item.name.first} 
@@ -123,7 +115,10 @@ renderItem  = ({item}) => {
                       <Text style={styles.stiloText}>Borrar</Text>
                     </View>
                 </TouchableOpacity> 
+                </View>
+                
         </View>
+        </ScrollView>
         
         
       
@@ -140,6 +135,7 @@ separator = () => <View style= {styles.separator}/>
   render(){
 
     return(
+      <ScrollView>
       <View>
         
           <Header/>
@@ -167,7 +163,13 @@ separator = () => <View style= {styles.separator}/>
 
 
                <View>
-                    <TextInput placeholder="Ingresar Cantidad" onChangeText={text => this.setState({textHandler: text})}/>
+                    <TextInput
+                     placeholder="Ingresar Cantidad" 
+                     onChangeText={text => this.setState({textHandler: text})}
+                     keyboardType ="numeric"
+                     style={{
+                       
+                     }}/>
                     <TouchableOpacity onPress={ () => this.importarCustom(this.state.textHandler)}>
                         <View style={styles.menu_view_button}>
                           <Text style={styles.stiloText}>Importar Custom</Text>
@@ -220,18 +222,19 @@ separator = () => <View style= {styles.separator}/>
       </View>
       
       <View style={styles.container_footer}>
-            <TouchableOpacity onPress={ () => this.props.navigation.navigate("Menu")}> 
-                <Image source={require("../img/home.png")} style={styles.home} />
-                </TouchableOpacity>
+            
                 <TouchableOpacity onPress={ () => this.props.navigation.goBack()}> 
                 <Image source={require("../img/back.png")} style={styles.home} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={ () => this.props.navigation.navigate("Menu")}> 
+                <Image source={require("../img/home.png")} style={styles.home} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={ () => this.props.navigation.navigate("AboutUs")}> 
                 <Image source={require("../img/us.png")} style={styles.home} />
                 </TouchableOpacity>
           </View>
       </View>
-
+</ScrollView>
     )
   }
 }
