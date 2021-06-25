@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { styles } from "../styles/Styles";
+import { styles } from "../styles/Styles"; 
 import {getData} from "../api/RandomUsers";
 import {TraerData} from "../api/TraerData";
 import {GuardarData} from "../api/GuardarData";

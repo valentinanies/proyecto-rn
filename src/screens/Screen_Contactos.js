@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import { styles } from "../styles/Styles";
 import Header from '../components/Header';
-import Favorita from '../components/cardFavorite';
 import { 
   View,
   Text,
