@@ -31,7 +31,10 @@ constructor(props){
         activity: false,
         showModal: false,
         selectedItem: null,
-        textHandler: ""
+        textHandler: "",
+        text:'',
+        usuario: '',
+
     }
     }
   
@@ -77,8 +80,30 @@ async storeData(){
     this.setState({users:resultados})
   }
 
+ /* filter(text){
+          if (text.length > 0) {
+              // var text = target.value
+            const usuarios = this.state.usuario
+            const filtrado = usuarios.filter((item) =>{
+            const itemData = item.name.first.toUpperCase()
+            const lastName = item.name.last.toUpperCase()
+            const age = item.dob.age.toString()
+            const textData = text.toUpperCase()
+            return (
+            itemData.includes(textData) || lastName.includes(textData) || age.includes(textData)
+                  // comparo name o last name o age con el valor ingresado .
+              )})
+            this.setState({
+                usuario: filtrado,
+                textoBuscado: text,
+            })
+          } else {
+            this.setState({usuario:this.state.personOriginal}) 
+          }
+          console.log(text);
 
-
+        }
+ */
 keyExtractor = (item, idx) => idx.toString()
 
 renderItem  = ({item}) => {
@@ -87,6 +112,7 @@ renderItem  = ({item}) => {
       <View >
         
         <View >
+        {/* <textImput placeholder="Buscar aqui..." onChangeText={text => {this.setState({search: text}); this.filter(text) }} value={search}/> */}
         <TouchableOpacity onPress= {() => this.showModal(item)}>
         <Card 
             nombre={item.name.first} 
