@@ -195,6 +195,7 @@ separator = () => <View style= {styles.separator}/>
                      placeholder="Ingresar Cantidad"
                      onChangeText={text => this.setState({textHandler: text})}
                      keyboardType ="numeric"
+                     required="true"
                      style={{
                        textAlign: "center",
                        fontSize: 20
@@ -236,8 +237,15 @@ separator = () => <View style= {styles.separator}/>
                                 multiline={true}
                                 
                                   style={{
-                                    textAlign: "center",
-                                    fontSize: 20
+                                   
+                                    backgroundColor:"white",
+                                    fontSize: 25,
+                                    margin: 15,
+                                    padding: 10,
+                                    height: 120,
+                                    width: 320,
+                                    borderColor: 'black',
+                                    borderWidth: 2
                                     }}/>
                             </View>
 

@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
 
     modalText: {
       fontSize: 20,
-      color: "white",
+      color: "black",
       fontWeight: "bold",
     },
 
