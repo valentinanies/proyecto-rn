@@ -23,10 +23,10 @@ export class Screen_Menu extends Component {
   render(){
     return(
       <ScrollView style={{backgroundColor: "white"}}>
+
+
       <View>
-        
-        <Header/>
-      
+
             <View style={styles.menu}>
               <Text style={styles.stiloTitle}>MENU</Text>
 
@@ -56,6 +56,7 @@ export class Screen_Menu extends Component {
               </TouchableOpacity>
 
             </View>
+            <Header/>
 
             <View style={styles.container_footer}>
             
