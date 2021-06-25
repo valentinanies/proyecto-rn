@@ -208,6 +208,38 @@ const styles = StyleSheet.create({
       borderRadius: 10
     },
 
+    card_A: {
+                backgroundColor: "#89c2d9",
+                borderStyle: "solid",
+                borderRadius: 20,
+                borderWidth: 2,
+                //margin: 5,
+                width: 200,
+                height: 150,
+                //padding: 10,
+                //top: 100,
+                //bottom: 5,
+                justifyContent:"center",
+                alignItems: "center",
+    },
+
+    card_B: {
+                backgroundColor: "#4699BB",
+                borderStyle: "solid",
+                borderRadius: 20,
+                borderWidth: 2,
+                //margin: 5,
+                width: 200,
+                height: 150,
+                //padding: 10,
+                //top: 100,
+                //bottom: 5,
+                justifyContent:"center",
+                alignItems: "center",
+                position: 'absolute',
+
+    },
+
    }) 
 
    export {styles}
