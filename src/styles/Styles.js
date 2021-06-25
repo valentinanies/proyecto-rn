@@ -135,6 +135,20 @@ const styles = StyleSheet.create({
       bottom: 5,
     },
 
+    card_modal: {
+      alignItems:"center",
+      backgroundColor: "#89c2d9",
+      borderStyle: "solid",
+      borderRadius: 20,
+      borderWidth: 2,
+      margin: 5,
+      width: 400,
+      height: 300,
+      padding: 10,
+      top: 10,
+      bottom: 5,
+    },
+
     card_about: {
       backgroundColor: "#89c2d9",
       borderStyle: "solid",

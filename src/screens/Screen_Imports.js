@@ -63,10 +63,11 @@ importarCustom = (n) => {
 }
 
 //guardar en el dispositivo las tarjetas de contacto
-async storeData(){
+
+async storeData(key, value){
   try{
-    const jsonUsers = JSON.stringify(this.state.users);
-    await AsyncStorage.setItem("Users", jsonUsers);
+    const jsonUsers = JSON.stringify(value)
+    await AsyncStorage.setItem(key, jsonUsers)
     console.log("Datos Almacenados");
   } catch(error){
     console.log(error)
@@ -131,7 +132,7 @@ renderItem  = ({item}) => {
 
 {/* onPress={ this.storeData.bind(this)} */}
 
-        <TouchableOpacity onPress={() => this.storeData(item)}>
+        <TouchableOpacity onPress={() => this.storeData("userData", this.state.users)}>
                     <View style={styles.guardar_contactos}>
                       <Text style={styles.stiloText}>Guardar</Text>
                     </View>
@@ -224,12 +225,22 @@ separator = () => <View style= {styles.separator}/>
                           {this.state.selectedItem &&
                           <>  
                               
-                              
+                            <View style={styles.card_modal}>
                               <Text style={styles.modalText}>Calle: {this.state.selectedItem.location.street.name}{this.state.selectedItem.location.street.number}</Text>
                               <Text style={styles.modalText}>País: {this.state.selectedItem.location.country}, {this.state.selectedItem.location.state}</Text>
                               <Text style={styles.modalText}>Código Postal: {this.state.selectedItem.location.postcode}</Text>
                               <Text style={styles.modalText}>Fecha de Registro: {this.state.selectedItem.registered.date}</Text>
                               <Text style={styles.modalText}>Teléfono: {this.state.selectedItem.phone}</Text>
+                              <TextInput
+                                placeholder="Agregar Comentario"
+                                multiline={true}
+                                
+                                  style={{
+                                    textAlign: "center",
+                                    fontSize: 20
+                                    }}/>
+                            </View>
+
 
 
                               

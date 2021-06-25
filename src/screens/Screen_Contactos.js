@@ -25,22 +25,31 @@ export class Screen_Contactos extends Component {
 }
 
 
-async getData() {
+// async getData() {
+//   try{
+    
+//     const users = await AsyncStorage.getItem("Users");
+
+//     const jsonUsers = JSON.parse(users)
+    
+//     if (Array.isArray(jsonUsers)) {
+//       this.setState({importedUsers: jsonUsers})
+//     } else{
+//       this.setState({importedUsers:[jsonUsers]})
+//     }
+    
+
+//   }catch(e){
+//     console.log(e)
+//   }
+// }
+
+async getData(key){
   try{
-    
-    const users = await AsyncStorage.getItem("Users");
-
-    const jsonUsers = JSON.parse(users)
-    
-    if (Array.isArray(jsonUsers)) {
-      this.setState({importedUsers: jsonUsers})
-    } else{
-      this.setState({importedUsers:[jsonUsers]})
-    }
-    
-
-  }catch(e){
-    console.log(e)
+    const jsonUsers = await AsyncStorage.getItem(key)
+    return jsonUsers != null ? JSON.parse(jsonUsers) : [];
+  } catch (error){
+    console.log(error);
   }
 }
 
@@ -81,8 +90,8 @@ async getData() {
       <View style={styles.container}>
 
 
-              <TouchableOpacity onPress={this.getData.bind(this)}>
-                <Text style={styles.stiloTitle}>Mis Contactos</Text>
+              <TouchableOpacity onPress={()=>{this.getData("userData", this.state.users)}}>
+                <Text style={styles.stiloTitle}>Mostrar Contactos</Text>
               </TouchableOpacity>
 
               { this.state.activity 
