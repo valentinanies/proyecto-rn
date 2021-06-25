@@ -35,11 +35,12 @@ constructor(props){
         showModal: false,
         selectedItem: null,
         textHandler: "",
-        text:'',
-        usuarios: '',
-        search: '',
+        text:"",
+        usuarios: "",
+        search: "",
         commmentHandler:"",
-
+        textoBuscador: "",
+        primerUser: "",
     }
     }
   
@@ -99,22 +100,31 @@ Comentar = (key, comment) => {
   filter(text){
           if (text.length > 0) {
               // var text = target.value
-            const personajes = this.state.usuarios
-            const filtrado = personajes.filter((item) =>{
-            const itemData = item.name.first.toUpperCase()
-            const lastName = item.name.last.toUpperCase()
-            const age = item.dob.age.toString()
-            const textData = text.toUpperCase()
+
+
+            const user = this.state.usuarios
+            const filter = user.filter((item) =>{
+
+
+          const data = item.name.first.toUpperCase()
+          const lastData = item.name.last.toUpperCase()
+          const age = item.dob.age.toString()
+          const textData = text.toUpperCase()
+
             return (
-            itemData.includes(textData) || lastName.includes(textData) || age.includes(textData)
-                  // comparo name o last name o age con el valor ingresado .
+              // comparo data
+            data.includes(textData) || 
+            lastData.includes(textData) || 
+            age.includes(textData)
+                
               )})
             this.setState({
-                usuarios: filtrado,
-                textoBuscado: text,
+                usuarios: filter,
+                textoBuscador: text,
             })
           } else {
-            this.setState({usuarios:this.state.personOriginal}) 
+            this.setState({
+              usuarios:this.state.primerUser}) 
           }
           console.log(text);
 
