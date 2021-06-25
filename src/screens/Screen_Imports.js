@@ -6,7 +6,6 @@ import {GuardarData} from "../api/GuardarData";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Container from '../components/Container'
-
 import { 
   View,
   Text,
@@ -68,13 +67,15 @@ importarCustom = (n) => {
 }
 
 
+// guardarComentario=()=>{
+//   TraerData(this.state.users.id).then(
+//     (text)=>{
+//       this.setState({commentHandler:text})
+//     }  )
+// }
+
 //MÉTODO COMENTARIOS
-Comentar = (key, comment) => {
-  TraerData(key).then((comments)=>{
-    comments = comments.concat(comment)
-    GuardarData(key, comments)
-  })
-}
+
 
 //guardar en el dispositivo las tarjetas de contacto -- EXPORTADO
 
@@ -89,12 +90,7 @@ Comentar = (key, comment) => {
 // }
 
 //este método debe ir en la papelera de reciclaje para eliminar definitivamente
-  borrarTarjeta(id){
-    let resultados = this.state.users.filter((item)=>{
-      return item.login.uuid !== id;
-    })
-    this.setState({users:resultados})
-  }
+
 
   filter(text){
           if (text.length > 0) {
@@ -145,13 +141,14 @@ renderItem  = ({item}) => {
 
 {/* onPress={ this.storeData.bind(this)} */}
 
-        <TouchableOpacity onPress={() => this.storeData("userData", this.state.users)}>
+        <TouchableOpacity onPress={() => GuardarData("userData", this.state.users)}>
                     <View style={styles.guardar_contactos}>
                       <Text style={styles.stiloText}>Guardar</Text>
                     </View>
                 </TouchableOpacity> 
 
-                <TouchableOpacity onPress={() => this.borrarTarjeta(item.login.uuid)}>
+
+                <TouchableOpacity  onPress={() => GuardarData("Papelera", this.state.users)}>
                     <View style={styles.borrar_contactos}>
                       <Text style={styles.stiloText}>Borrar</Text>
                     </View>

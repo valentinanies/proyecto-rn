@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import { styles } from "../styles/Styles";
+import {TraerData} from "../api/TraerData"
 import Header from '../components/Header'
+import Card from "../components/Card"
 import { 
   View,
   Text,
@@ -21,6 +23,7 @@ export class Screen_Contactos extends Component {
       importedUsers: [],
       showModal: false,
       textHandler: "",
+      users:[]
     }
 }
 
@@ -44,14 +47,14 @@ export class Screen_Contactos extends Component {
 //   }
 // }
 
-async getData(key){
-  try{
-    const jsonUsers = await AsyncStorage.getItem(key)
-    return jsonUsers != null ? JSON.parse(jsonUsers) : [];
-  } catch (error){
-    console.log(error);
-  }
-}
+// async getData(key){
+//   try{
+//     const jsonUsers = await AsyncStorage.getItem(key)
+//     return jsonUsers != null ? JSON.parse(jsonUsers) : [];
+//   } catch (error){
+//     console.log(error);
+//   }
+// }
 
 
   keyExtractor = (item, idx) => idx.toString();
@@ -73,8 +76,8 @@ async getData(key){
               telefono={item.cell}
             />
           </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => this.deleteData(item)}><Text>Eliminar</Text></TouchableOpacity>
+          
+          <TouchableOpacity onPress={() => this.deleteData(item)}><Text>Borrar</Text></TouchableOpacity>
         </View>
   
       )
@@ -89,8 +92,9 @@ async getData(key){
         <Header/>
       <View style={styles.container}>
 
-
-              <TouchableOpacity style={styles.menu_view_button} onPress={()=>{this.getData("userData", this.state.users)}}>
+              <TouchableOpacity style={styles.menu_view_button}onPress={() => {TraerData('userData').then((users)=>{
+                    this.setState({users: users})
+                    })}}>
                 <Text style={styles.stiloText}>Mostrar Contactos</Text>
               </TouchableOpacity>
 
