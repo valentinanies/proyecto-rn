@@ -30,7 +30,7 @@ export default class App extends Component {
             <Stack.Screen name="Imports" component={Screen_Imports}/>
             <Stack.Screen name="Contactos" component={Screen_Contactos}/>
             <Stack.Screen name="AboutUs" component={Screen_AboutUs}/>
-            {/* <Stack.Screen name="Papelera" component={Screen_Papelera}/> */}
+            <Stack.Screen name="Papelera" component={Screen_Papelera}/>
           </Stack.Navigator>
         </NavigationContainer>
       
