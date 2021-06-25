@@ -33,7 +33,7 @@ constructor(props){
         selectedItem: null,
         textHandler: "",
         text:'',
-        usuario: '',
+        usuarios: '',
         search: '',
 
     }
@@ -86,8 +86,8 @@ async storeData(key, value){
   filter(text){
           if (text.length > 0) {
               // var text = target.value
-            const usuarios = this.state.usuario
-            const filtrado = usuarios.filter((item) =>{
+            const personajes = this.state.usuarios
+            const filtrado = personajes.filter((item) =>{
             const itemData = item.name.first.toUpperCase()
             const lastName = item.name.last.toUpperCase()
             const age = item.dob.age.toString()
@@ -97,11 +97,11 @@ async storeData(key, value){
                   // comparo name o last name o age con el valor ingresado .
               )})
             this.setState({
-                usuario: filtrado,
+                usuarios: filtrado,
                 textoBuscado: text,
             })
           } else {
-            this.setState({usuario:this.state.personOriginal}) 
+            this.setState({usuarios:this.state.personOriginal}) 
           }
           console.log(text);
 
