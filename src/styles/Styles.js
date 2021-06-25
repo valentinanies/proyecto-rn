@@ -94,21 +94,49 @@ const styles = StyleSheet.create({
       paddingRight: 50,
       borderRadius: 30,
       marginTop: 10,
-      width: 150
+      width: 200
+      
+    },
+
+    borrar_contactos:{
+      backgroundColor: "#CC0000",
+      textAlign: "center",
+      padding: 10,
+      paddingLeft: 50,
+      paddingRight: 50,
+      borderRadius: 30,
+      marginTop: 5,
+      width: 200
       
     },
   
     card: {
+      alignItems:"center",
       backgroundColor: "#89c2d9",
       borderStyle: "solid",
       borderRadius: 20,
       borderWidth: 2,
       margin: 5,
-      width: 150,
+      width: 200,
+      height: 175,
+      padding: 10,
+      top: 10,
+      bottom: 5,
+    },
+
+    card_about: {
+      backgroundColor: "#89c2d9",
+      borderStyle: "solid",
+      borderRadius: 20,
+      borderWidth: 2,
+      margin: 5,
+      width: 200,
       height: 150,
       padding: 10,
       top: 10,
       bottom: 5,
+      
+      alignItems: "center"
     },
     
     container_card: {
@@ -116,6 +144,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 1,
     },
+
+    container_card_about: {
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      
+      },
 
     separator: {
       borderBottomWidth: 2,
@@ -158,7 +193,7 @@ const styles = StyleSheet.create({
       position: "absolute",
       right: 20,
       top: 10,
-      fontSize: 20,
+      fontSize: 60,
       color: "red",
     },
 
@@ -168,8 +203,9 @@ const styles = StyleSheet.create({
     },
 
     image: {
-      width: 50,
-      height: 50,
+      width: 150,
+      height: 100,
+      borderRadius: 10
     },
 
    }) 
