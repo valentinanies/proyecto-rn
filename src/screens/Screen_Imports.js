@@ -14,11 +14,13 @@ import {
   Image,
   Modal,
   ScrollView,
+  TextInput
 } from 'react-native';
 
 import Card from "../components/Card"
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 export class Screen_Imports extends Component {
     
@@ -29,6 +31,7 @@ constructor(props){
         activity: false,
         showModal: false,
         selectedItem: null,
+        textHandler: ""
     }
     }
   
@@ -47,6 +50,14 @@ async getDataFromApi() {
   this.setState({users: usuarios, activity: false})
 }
 
+
+importarCustom = (n) => {
+  getData(n)
+  .then( (usuarios) => {
+    usuarios = this.state.users.concat(usuarios)
+    this.setState({users:usuarios});
+  })
+}
 
 //guardar en el dispositivo las tarjetas de contacto
 async storeData(){
@@ -152,12 +163,17 @@ separator = () => <View style= {styles.separator}/>
                 }
 
               
-                <TouchableOpacity onPress={ () => this.getDataFromApi()}>
-                    <View style={styles.menu_view_button}>
-                      <Text style={styles.stiloText}>Importar Contactos</Text>
-                    </View>
-                </TouchableOpacity> 
-               
+                
+
+
+               <View>
+                    <TextInput placeholder="Ingresar Cantidad" onChangeText={text => this.setState({textHandler: text})}/>
+                    <TouchableOpacity onPress={ () => this.importarCustom(this.state.textHandler)}>
+                        <View style={styles.menu_view_button}>
+                          <Text style={styles.stiloText}>Importar Custom</Text>
+                        </View>
+                    </TouchableOpacity> 
+                </View> 
 
                 <View>
                 
