@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { styles } from "../styles/Styles";
+import { styles } from "../styles/Styles"; 
 import {getData} from "../api/RandomUsers";
 import {TraerData} from "../api/TraerData";
 import {GuardarData} from "../api/GuardarData";
@@ -34,11 +34,12 @@ constructor(props){
         showModal: false,
         selectedItem: null,
         textHandler: "",
-        text:'',
-        usuarios: '',
-        search: '',
+        text:"",
+        usuarios: "",
+        search: "",
         commmentHandler:"",
-
+        textoBuscador: "",
+        primerUser: "",
     }
     }
   
@@ -95,22 +96,31 @@ importarCustom = (n) => {
   filter(text){
           if (text.length > 0) {
               // var text = target.value
-            const personajes = this.state.usuarios
-            const filtrado = personajes.filter((item) =>{
-            const itemData = item.name.first.toUpperCase()
-            const lastName = item.name.last.toUpperCase()
-            const age = item.dob.age.toString()
-            const textData = text.toUpperCase()
+
+
+            const user = this.state.usuarios
+            const filter = user.filter((item) =>{
+
+
+          const data = item.name.first.toUpperCase()
+          const lastData = item.name.last.toUpperCase()
+          const age = item.dob.age.toString()
+          const textData = text.toUpperCase()
+
             return (
-            itemData.includes(textData) || lastName.includes(textData) || age.includes(textData)
-                  // comparo name o last name o age con el valor ingresado .
+              // comparo data
+            data.includes(textData) || 
+            lastData.includes(textData) || 
+            age.includes(textData)
+                
               )})
             this.setState({
-                usuarios: filtrado,
-                textoBuscado: text,
+                usuarios: filter,
+                textoBuscador: text,
             })
           } else {
-            this.setState({usuarios:this.state.personOriginal}) 
+            this.setState({
+              usuarios:this.state.primerUser}) 
           }
           console.log(text);
 
@@ -184,7 +194,10 @@ separator = () => <View style= {styles.separator}/>
          textAlign: "center",
          fontSize: 20
         }}
-        placeholder="Buscar aqui..." onChangeText={text => {this.setState({search: text}); this.filter(text) }} value={search}/>
+        placeholder="Filtrar" 
+        onChangeText={text => {this.setState({search: text})
+        this.filter(text)}} 
+        value={search}/>
                 { this.state.activity 
                     ? <React.Fragment>
                     <ActivityIndicator

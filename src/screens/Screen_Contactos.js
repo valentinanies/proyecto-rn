@@ -76,7 +76,7 @@ export class Screen_Contactos extends Component {
               telefono={item.cell}
             />
           </TouchableOpacity>
-          
+
           <TouchableOpacity onPress={() => this.deleteData(item)}><Text>Borrar</Text></TouchableOpacity>
         </View>
   
