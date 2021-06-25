@@ -16,7 +16,7 @@ constructor() {
   render (){
     return (
     <View style={styles.header}>
-        <Text style={styles.stiloTitle}>Mis Contactos</Text>
+        <Text style={styles.stiloTitle}></Text>
     </View>
   )}  
 
