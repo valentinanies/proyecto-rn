@@ -73,6 +73,7 @@ async storeData(){
   }
 }
 
+//este método debe ir en la papelera de reciclaje para eliminar definitivamente
   borrarTarjeta(id){
     let resultados = this.state.users.filter((item)=>{
       return item.login.uuid !== id;
@@ -118,7 +119,7 @@ renderItem  = ({item}) => {
             nombre={item.name.first} 
             apellido={item.name.last} 
             id={item.login.uuid} 
-            foto={item.picture.thumbnail} 
+            foto={item.picture.large} 
             edad={item.dob.age} 
             mail={item.email} 
             fecha={item.dob.date}  
@@ -137,7 +138,7 @@ renderItem  = ({item}) => {
                 </TouchableOpacity> 
 
                 <TouchableOpacity onPress={() => this.borrarTarjeta(item.login.uuid)}>
-                    <View style={styles.guardar_contactos}>
+                    <View style={styles.borrar_contactos}>
                       <Text style={styles.stiloText}>Borrar</Text>
                     </View>
                 </TouchableOpacity> 
@@ -222,8 +223,7 @@ separator = () => <View style= {styles.separator}/>
                           {this.state.selectedItem &&
                           <>  
                               
-                              {/* <Text style={styles.modalText}>Nombre: {this.state.selectedItem.name.first}</Text>
-                              <Text style={styles.modalText}>Apellido: {this.state.selectedItem.name.last}</Text> */}
+                              
                               <Text style={styles.modalText}>Calle: {this.state.selectedItem.location.street.name}{this.state.selectedItem.location.street.number}</Text>
                               <Text style={styles.modalText}>País: {this.state.selectedItem.location.country}, {this.state.selectedItem.location.state}</Text>
                               <Text style={styles.modalText}>Código Postal: {this.state.selectedItem.location.postcode}</Text>
@@ -249,16 +249,22 @@ separator = () => <View style= {styles.separator}/>
       
       <View style={styles.container_footer}>
             
-                <TouchableOpacity onPress={ () => this.props.navigation.goBack()}> 
-                <Image source={require("../img/back.png")} style={styles.home} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={ () => this.props.navigation.navigate("Menu")}> 
-                <Image source={require("../img/home.png")} style={styles.home} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={ () => this.props.navigation.navigate("AboutUs")}> 
-                <Image source={require("../img/us.png")} style={styles.home} />
-                </TouchableOpacity>
-          </View>
+<TouchableOpacity onPress={ () => this.props.navigation.goBack()}> 
+<Image source={require("../img/back.png")} style={styles.home} />
+</TouchableOpacity>
+<TouchableOpacity onPress={ () => this.props.navigation.navigate("Papelera")}> 
+<Image source={require("../img/papelera.png")} style={styles.home} />
+</TouchableOpacity>
+<TouchableOpacity onPress={ () => this.props.navigation.navigate("Menu")}> 
+<Image source={require("../img/home.png")} style={styles.home} />
+</TouchableOpacity>
+<TouchableOpacity onPress={ () => this.props.navigation.navigate("Contactos")}> 
+<Image source={require("../img/contactos.png")} style={styles.home} />
+</TouchableOpacity>
+<TouchableOpacity onPress={ () => this.props.navigation.navigate("AboutUs")}> 
+<Image source={require("../img/aboutUs.png")} style={styles.home} />
+</TouchableOpacity>
+</View>
       </View>
 </ScrollView>
     )
