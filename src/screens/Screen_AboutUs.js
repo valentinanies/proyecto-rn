@@ -24,6 +24,7 @@ export class Screen_AboutUs extends Component {
         <View style={{flexDirection: "column",
                       justifyContent: "space-around",
                       alignItems: "center",
+                      backgroundColor: "white",
                       flex:1
                       }}>
           <Card_AB name={'Lautaro Ortiz'}  />

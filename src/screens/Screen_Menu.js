@@ -22,7 +22,7 @@ export class Screen_Menu extends Component {
 
   render(){
     return(
-      <ScrollView>
+      <ScrollView style={{backgroundColor: "white"}}>
       <View>
         
         <Header/>
